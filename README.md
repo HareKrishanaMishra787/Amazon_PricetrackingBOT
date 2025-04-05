@@ -19,7 +19,7 @@ Compares it with a predefined "BUY_PRICE."
 Email Notification:
 
 
-![Screenshot 2025-04-01 194747](https://github.com/user-attachments/assets/ad65e0f1-6f76-49cb-80f8-0db9aefa2af6)
+<img src ="https://github.com/user-attachments/assets/ad65e0f1-6f76-49cb-80f8-0db9aefa2af6" width ="800">
 
 Uses smtplib to send an email alert when the price drops.
 
