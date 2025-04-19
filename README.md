@@ -1,35 +1,95 @@
-# Amazon_PricetrackingBOT is an Amazon Price Tracker that monitors the price of a product on Amazon and sends an email notification when the price drops below a set threshold.
+# 🔔 Amazon Price Tracker 🛒
 
-Project Overview
-This script scrapes an Amazon product page to check its current price and sends an email alert if the price falls below a predefined value.
+A Python-based **Amazon Price Tracker** that sends you an **email alert** when a product’s price drops below your target. Perfect for getting the best deals without constantly checking manually!
 
-How It Works
-Web Scraping:
+---
 
-Uses requests and BeautifulSoup to fetch and parse the product page.
+## 🧠 What It Does
 
-Extracts the product title and price.
+- 🕵️ Scrapes product price and title from Amazon
+- 🔁 Checks if the current price is below your set threshold
+- 📧 Sends you an **email alert** when the item is on sale
+- 🌐 Works on any Amazon product page (just replace the URL!)
 
-Price Comparison:
+---
 
-Converts the extracted price into a numerical format.
+## 🚀 How to Use
 
-Compares it with a predefined "BUY_PRICE."
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/amazon-price-tracker.git
+cd amazon-price-tracker
+```
 
-Email Notification:
+### 2. Install Dependencies
+```bash
+pip install requests beautifulsoup4 python-dotenv
+```
 
+### 3. Configure Environment Variables
 
-<img src ="https://github.com/user-attachments/assets/ad65e0f1-6f76-49cb-80f8-0db9aefa2af6" width ="800">
+Create a `.env` file in your project directory with the following:
+```
+MY_SMTP_ADDRESS=smtp.gmail.com
+MY_EMAIL=your_email@gmail.com
+MY_PASSWORD=your_email_app_password
+```
 
-Uses smtplib to send an email alert when the price drops.
+✅ Use an **App Password** for Gmail (if you have 2FA enabled).
 
-Retrieves email credentials from an .env file using dotenv.
+---
 
-Requirements
-requests for HTTP requests.
+## ✍️ Modify Your Target Product
 
-BeautifulSoup for HTML parsing.
+Edit the `url` in `main.py` to point to your desired Amazon product:
+```python
+url = "https://www.amazon.in/dp/B01LYEV6RF"
+```
 
-smtplib for sending emails.
+Also adjust your desired price:
+```python
+BUY_PRICE = 400
+```
 
-dotenv for environment variable management.
+---
+
+## ▶️ Run the Script
+```bash
+python main.py
+```
+
+If the product is under your `BUY_PRICE`, you'll get an email like:
+
+```
+Subject: Amazon Price Alert!
+Body: Apple AirPods Pro is on sale for ₹399! 
+```
+
+---
+
+## 🛠 Troubleshooting
+
+- **Price not found?** Amazon's HTML can change—inspect the page and update the scraping logic if needed.
+- **Email not sending?** Check SMTP config, or ensure less secure apps are allowed (or use an app password).
+
+---
+
+## 💡 Tip
+
+You can set this up to run on a schedule using:
+- `cron` on Linux/macOS
+- Task Scheduler on Windows
+- Python's `schedule` library for a script-based timer
+
+---
+
+## 🙏 Credits
+
+- Uses [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/) for parsing HTML
+- Thanks to [Amazon](https://www.amazon.in/) for the product listings
+
+---
+
+## 🌟 Like This Project?
+
+Star the repo ⭐ and share it if it helped you grab a deal!
